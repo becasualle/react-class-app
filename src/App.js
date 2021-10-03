@@ -1,11 +1,11 @@
 import React from 'react';
 import BookList from './BookList'
+import './App.css'
 
 class App extends React.Component {
   render() {
     return (
       <section>
-        <h1>This is our application</h1>
         <BookList />
       </section>
     )
