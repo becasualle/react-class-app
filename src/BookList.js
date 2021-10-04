@@ -9,19 +9,12 @@ export default class BookList extends Component {
             books: booksData
         }
     }
-    handleDelete = () => {
-        console.log(`i'm from parent`)
+    handleDelete = (id) => {
+        const temp = this.state.books.filter(item => item.id !== id);
+        this.setState({ books: temp })
     }
-    // state = { books: booksData }
-    // this.setState({})
-    render() {
-        // const books = this.state.books.map(item => item.book);
-        // console.log(books);
 
-        // filter
-        // forEach
-        // map
-        // reduce
+    render() {
 
         return (
             <section>

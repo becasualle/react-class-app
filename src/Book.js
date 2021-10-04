@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Button from './Button';
 
 export default class Book extends Component {
     constructor(props) {
@@ -10,7 +9,7 @@ export default class Book extends Component {
     }
 
     render() {
-        const { img, title, author } = this.props.info;
+        const { id, img, title, author } = this.props.info;
         const { handleDelete } = this.props;
 
         return (
@@ -19,8 +18,7 @@ export default class Book extends Component {
                 <div>
                     <h3>Title : {title} </h3>
                     <h6>Author : {author}</h6>
-                    <Button handleDelete={handleDelete} />
-
+                    <button type="button" onClick={() => handleDelete(id)}>delete me</button>
                 </div>
             </article>
         )
