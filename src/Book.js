@@ -19,13 +19,26 @@ export default class Book extends Component {
     // }
 
     // arrow functions don't create their own context so we don't need to bind it
-    handleClick = () => {
-        console.log('you clicked me')
-        console.log(this.state.count)
+    addCount = () => {
+        // this.state.count++; //not proper way because mutates the state
+        this.setState({
+            count: this.state.count + 1
+        })
+    }
+
+    lowerCount = () => {
+        this.setState({
+            count: this.state.count - 1
+        })
+    }
+
+    resetCount = () => {
+        this.setState({
+            count: 0
+        })
     }
 
     render() {
-        // console.log(this.props);
         const { img, title, author } = this.props.info;
 
         return (
@@ -34,7 +47,10 @@ export default class Book extends Component {
                 <div>
                     <h3>Title : {title} </h3>
                     <h5>Author : {author}</h5>
-                    <button type="button" onClick={this.handleClick}>add count</button>
+                    <h3>count : {this.state.count}</h3>
+                    <button type="button" onClick={this.addCount}>add count</button>
+                    <button type="button" onClick={this.lowerCount}>lower count</button>
+                    <button type="button" onClick={this.resetCount}>reset count</button>
                 </div>
             </article>
         )
