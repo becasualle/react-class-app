@@ -4,8 +4,14 @@ export default class Book extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            count: 1
+            count: 1,
+            showInfo: true
         }
+    }
+
+    handleInfo = () => {
+        this.setState({ showInfo: !this.state.showInfo })
+        console.log(this.state)
     }
 
     render() {
@@ -19,6 +25,10 @@ export default class Book extends Component {
                     <h3>Title : {title} </h3>
                     <h6>Author : {author}</h6>
                     <button type="button" onClick={() => handleDelete(id)}>delete me</button>
+                    <button type="button" onClick={this.handleInfo}>toggle info</button>
+                    {
+                        this.state.showInfo && <p>some text</p>
+                    }
                 </div>
             </article>
         )
